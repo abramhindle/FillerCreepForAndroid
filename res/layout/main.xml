@@ -7,6 +7,36 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello" />
+        android:text="@string/welcome" />
+
+    <Button
+        android:id="@+id/newgame"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/newgame" />
+
+    <Button
+        android:id="@+id/scoreview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/scoreview" />
+
+    <Button
+        android:id="@+id/textonlyview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/textonlyview" />
+
+    <Button
+        android:id="@+id/seemap"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/seemap" />
+
+    <Button
+        android:id="@+id/graphicalview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/graphicalview" />
 
 </LinearLayout>

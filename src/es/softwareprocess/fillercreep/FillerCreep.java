@@ -41,6 +41,8 @@ public class FillerCreep implements Model {
 				universe[x][y] = stuff[(int)(Math.random()*stuff.length)].copy();
 			}
 		}
+		
+		players = new Player[nPlayers];
 		// Player 1
 		Yin player1 = new Yin(0,0);
 		players[0] = player1;
@@ -133,5 +135,8 @@ public class FillerCreep implements Model {
 	}
 	public void resetGame() {
 		init();
+	}
+	public int[] getScores() {
+		return scores;
 	}
 }

@@ -5,4 +5,5 @@ public interface Player {
 	public int getY();
 	// Get the STUFF of the player
 	public FundamentalStuff stuff();
+	public String getName();
 }

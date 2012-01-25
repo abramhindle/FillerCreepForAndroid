@@ -17,4 +17,8 @@ public class Yang extends FundamentalStuff implements Player {
 	public FundamentalStuff stuff() {
 		return this;	
 	}
+	public String getName() {
+		return "Yang";
+	}
+
 }

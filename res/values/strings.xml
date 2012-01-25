@@ -3,5 +3,11 @@
 
     <string name="hello">Hello World, FillerCreepActivity!</string>
     <string name="app_name">FillerCreep</string>
+    <string name="welcome">Welcome To Filler Creep</string>
+    <string name="newgame">Reset/New Game</string>
+    <string name="scoreview">Current Score Only</string>
+    <string name="textonlyview">Text Only Interface</string>
+    <string name="seemap">See the Universe</string>
+    <string name="graphicalview">Graphical Interface to the Universe</string>
 
 </resources>
