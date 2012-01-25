@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <ImageButton
+        android:id="@+id/gamegraphicalview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.8"
+        android:src="@drawable/ic_launcher" />
+        <TextView
+        android:id="@+id/gameyin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ying"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/gameyang"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/yang"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <ImageButton
+        android:id="@+id/gamedarkenergy"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dark_energy"
+        android:text="@string/darkenergy" />
+
+    <ImageButton
+        android:id="@+id/gamedarkmatter"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dark_matter"
+        android:text="@string/darkmatter" />
+
+    <ImageButton
+        android:id="@+id/gameenergy"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/energy"
+        android:text="@string/energy" />
+
+    <ImageButton
+        android:id="@+id/gamematter"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/matter"
+        android:text="@string/matter" />
+</LinearLayout>

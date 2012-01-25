@@ -140,9 +140,16 @@ public class FillerCreep implements Model {
 		int changeInScore = scoreAfter - scoreBefore;	
 		return scoreAfter;
 	}
+	private FundamentalStuff[][] cloneUniverse() {
+		FundamentalStuff[][] newUniverse = new FundamentalStuff[universe.length][];
+		for (int i = 0 ; i < universe.length; i++) {
+			newUniverse[i] = universe[i].clone();
+		}
+		return newUniverse;
+	}
 	// For AIs or interfaces to test a possible play
 	public int testPlayerPlay(Player player, FundamentalStuff choiceOfStuff) {
-		FundamentalStuff[][] newUniverse = universe.clone();
+		FundamentalStuff[][] newUniverse = cloneUniverse();
 		// First we fill from that player's corner
 		// With the STUFF we want
 		int scoreBefore = FillerCreep.fillFlood(newUniverse, player.getX(), player.getY(), player.stuff(), choiceOfStuff);
