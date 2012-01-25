@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class FillerCreepGraphicalGameActivity extends Activity {
+public class FillerCreepGraphicalGameActivity extends Activity implements FView<FillerCreep> {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class FillerCreepGraphicalGameActivity extends Activity {
             }
         };
         button.setOnClickListener(listener);
-        updateMap();
+        
                                
         
         ImageButton debutton = (ImageButton)findViewById(R.id.gamedarkenergy);
@@ -53,9 +53,23 @@ public class FillerCreepGraphicalGameActivity extends Activity {
         		play(new Matter());
         	}
         });
+        
+        updateMap();
         updateScores();
         
-        
+        FillerCreep fc = FillerCreepApplication.getFillerCreep();
+        fc.addView(this);
+    }
+    @Override
+    public void onDestroy() {
+    	super.onDestroy();
+        FillerCreep fc = FillerCreepApplication.getFillerCreep();
+        fc.deleteView(this);    	
+    }
+
+    public void update(FillerCreep fillerCreep) {
+    	updateMap();
+    	updateScores();
     }
     public void updateMap() {
     	ImageButton button = (ImageButton)findViewById(R.id.gamegraphicalview);
@@ -67,8 +81,6 @@ public class FillerCreepGraphicalGameActivity extends Activity {
     void play(FundamentalStuff choice) {
 		FillerCreep fillerCreep = FillerCreepApplication.getFillerCreep();
 		fillerCreep.playRoundWithAI(0, choice);
-		updateMap();
-		updateScores();    	
     }
     void updateScores() {
     	TextView score1 = (TextView)findViewById(R.id.gameyin);

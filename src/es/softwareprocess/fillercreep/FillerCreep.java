@@ -4,7 +4,7 @@ import java.util.Stack;
 
 //Our Model
 
-public class FillerCreep implements Model {
+public class FillerCreep extends FModel<FView> {
 	static private FundamentalStuff[] stuffArray = null;
 	static FundamentalStuff[] getStuffArray() {
 		if (stuffArray == null) {
@@ -26,9 +26,11 @@ public class FillerCreep implements Model {
 	int width = 32;
 	int height = 32;
 	FillerCreep() {
+		super();
 		init();
 	}
 	FillerCreep(int width, int height) {
+		super();
 		this.width = width;
 		this.height = height;
 		init();
@@ -68,6 +70,7 @@ public class FillerCreep implements Model {
 	// Mutates the board universe
 	// counts the fills
 	// note the shadowing
+	// This blows the stack on android ;_;
 	static public int stackfulFillFlood(FundamentalStuff[][] universe, int x, int y, FundamentalStuff toReplace, FundamentalStuff replaceWith) {
 		if (toReplace.isSame(replaceWith)) {
 			throw new RuntimeException("Why is toReplace == replaceWith " + toReplace.getClass().toString() + " " + replaceWith.getClass().toString());
@@ -129,15 +132,23 @@ public class FillerCreep implements Model {
 		Player player = players[playerNumber];
 		return playPlayer( player, choiceOfStuff );
 	}
+	private void updateScore(Player player, int newScore) {
+		for (int i = 0; i < players.length; i++) {
+			if (players[i]==player) {
+				scores[i] = newScore;
+			}
+		}
+	}
 	public int playPlayer(Player player, FundamentalStuff choiceOfStuff) {
-		System.err.println("Player "+player.getName()+" plays "+choiceOfStuff.getName());
+		//System.err.println("Player "+player.getName()+" plays "+choiceOfStuff.getName());
 		// First we fill from that player's corner
 		// With the STUFF we want
 		int scoreBefore = fillFlood(player.getX(), player.getY(), player.stuff(), choiceOfStuff);
 		// Then we fill that STUFF we want
 		// With the Player's STUFF
 		int scoreAfter  = fillFlood(player.getX(), player.getY(), choiceOfStuff, player.stuff());
-		int changeInScore = scoreAfter - scoreBefore;	
+		int changeInScore = scoreAfter - scoreBefore;
+		updateScore(player, scoreAfter);
 		return scoreAfter;
 	}
 	private FundamentalStuff[][] cloneUniverse() {
@@ -185,6 +196,7 @@ public class FillerCreep implements Model {
 	}
 	public void resetGame() {
 		init();
+		notifyViews();
 	}
 	public int[] getScores() {
 		return scores;
@@ -206,9 +218,8 @@ public class FillerCreep implements Model {
 		}
 		int you  = playPlayer(playerID, choice);
 		int them = playAIPlayer(otherPlayer);
-		scores[playerID] = you;
-		scores[otherPlayer] = them;
-		System.err.println("You:"+playerID+" "+you + " Them:"+otherPlayer+" "+them+" Your Choice was "+choice.getClass().getName());
+		//System.err.println("You:"+playerID+""+you + " Them:"+otherPlayer+" "+them+" Your Choice was "+choice.getClass().getName());
+		notifyViews();
 	}
 	public int getWidth() {
 		return width;

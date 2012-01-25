@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class FillerCreepTextViewActivity extends Activity {
+public class FillerCreepTextViewActivity extends Activity implements FView<FillerCreep> {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,11 +46,23 @@ public class FillerCreepTextViewActivity extends Activity {
         	}
         });
         updateScores();
+        FillerCreep fc = FillerCreepApplication.getFillerCreep();
+        fc.addView(this);
     }
+    
+    public void update(FillerCreep fillerCreep) {
+    	updateScores();
+    }
+    @Override
+    public void onDestroy() {
+    	super.onDestroy();
+        FillerCreep fc = FillerCreepApplication.getFillerCreep();
+        fc.deleteView(this);    	
+    }
+
     void play(FundamentalStuff choice) {
 		FillerCreep fillerCreep = FillerCreepApplication.getFillerCreep();
-		fillerCreep.playRoundWithAI(0, choice);
-		updateScores();    	
+		fillerCreep.playRoundWithAI(0, choice);		
     }
     void updateScores() {
     	TextView score1 = (TextView)findViewById(R.id.textyin);
