@@ -66,8 +66,6 @@ public class FillerCreepTextViewActivity extends Activity {
 		String wins = " wins and ";
 		for (int i = 0; i < scores.length; i++) {
 			tscores[i].setText(players[i].getName() +(winner==i?wins:"") + " has " + scores[i]);
-		}
-			
-
+		}			
     }
 }

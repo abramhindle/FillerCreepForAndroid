@@ -130,6 +130,7 @@ public class FillerCreep implements Model {
 		return playPlayer( player, choiceOfStuff );
 	}
 	public int playPlayer(Player player, FundamentalStuff choiceOfStuff) {
+		System.err.println("Player "+player.getName()+" plays "+choiceOfStuff.getName());
 		// First we fill from that player's corner
 		// With the STUFF we want
 		int scoreBefore = fillFlood(player.getX(), player.getY(), player.stuff(), choiceOfStuff);
@@ -144,11 +145,11 @@ public class FillerCreep implements Model {
 		FundamentalStuff[][] newUniverse = universe.clone();
 		// First we fill from that player's corner
 		// With the STUFF we want
-		int scoreBefore = fillFlood(newUniverse, player.getX(), player.getY(), player.stuff(), choiceOfStuff);
+		int scoreBefore = FillerCreep.fillFlood(newUniverse, player.getX(), player.getY(), player.stuff(), choiceOfStuff);
 		// Then we fill that STUFF we want
 		// With the Player's STUFF
-		int scoreAfter  = fillFlood(newUniverse, player.getX(), player.getY(), choiceOfStuff, player.stuff());
-		int changeInScore = scoreAfter - scoreBefore;
+		int scoreAfter  = FillerCreep.fillFlood(newUniverse, player.getX(), player.getY(), choiceOfStuff, player.stuff());
+		int changeInScore = scoreAfter - scoreBefore;		
 		return scoreAfter;
 	}
 	public int testPlayerPlay(int playerID, FundamentalStuff choiceOfStuff) {
@@ -202,4 +203,14 @@ public class FillerCreep implements Model {
 		scores[otherPlayer] = them;
 		System.err.println("You:"+playerID+" "+you + " Them:"+otherPlayer+" "+them+" Your Choice was "+choice.getClass().getName());
 	}
+	public int getWidth() {
+		return width;
+	}
+	public int getHeight() {
+		return height;
+	}
+	public FundamentalStuff[][] getUniverse() {
+		return universe;
+	}
+
 }

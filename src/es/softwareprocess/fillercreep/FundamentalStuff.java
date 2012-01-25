@@ -6,4 +6,5 @@ abstract public class FundamentalStuff {
 	public boolean isSame(FundamentalStuff stuff) {
 		return (this.intID() == stuff.intID());
 	}
+	abstract public String getName();
 }

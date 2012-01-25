@@ -6,4 +6,5 @@ public class DarkEnergy extends FundamentalStuff {
 	}
 	@Override
 	public int intID() { return 1; }
+	public String getName() { return "Dark Energy"; }
 }

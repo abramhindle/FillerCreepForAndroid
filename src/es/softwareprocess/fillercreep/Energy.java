@@ -5,4 +5,5 @@ public class Energy extends FundamentalStuff {
 		return new Energy();
 	}
 	public int intID() { return 3; }
+	public String getName() { return "Energy"; }
 }

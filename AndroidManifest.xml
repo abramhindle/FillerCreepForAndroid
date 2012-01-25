@@ -19,8 +19,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-                <activity
+        <activity
             android:name=".FillerCreepTextViewActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".FillerCreepGraphicalViewActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".FillerCreepGraphicalGameActivity"
             android:label="@string/app_name" >
             <intent-filter>
             </intent-filter>

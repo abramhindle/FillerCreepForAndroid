@@ -5,4 +5,5 @@ public class DarkMatter extends FundamentalStuff {
 		return new DarkMatter();
 	}
 	public int intID() { return 2; }
+	public String getName() { return "Dark Matter"; }
 }

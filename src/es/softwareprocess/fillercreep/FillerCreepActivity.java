@@ -49,6 +49,22 @@ public class FillerCreepActivity extends Activity {
         		startActivity(intent);
         	}
         });
-        
+        Button gvButton = (Button)findViewById(R.id.seemap);
+        gvButton.setOnClickListener(new OnClickListener() {			
+        	@Override
+        	public void onClick(View arg0) {				
+        		Intent intent = new Intent(FillerCreepActivity.this, FillerCreepGraphicalViewActivity.class);
+        		startActivity(intent);
+        	}
+        });
+        Button ggButton = (Button)findViewById(R.id.graphicalview);
+        ggButton.setOnClickListener(new OnClickListener() {			
+        	@Override
+        	public void onClick(View arg0) {				
+        		Intent intent = new Intent(FillerCreepActivity.this, FillerCreepGraphicalGameActivity.class);
+        		startActivity(intent);
+        	}
+        });
+
     }
 }

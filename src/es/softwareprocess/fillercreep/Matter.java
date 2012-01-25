@@ -5,4 +5,5 @@ public class Matter extends FundamentalStuff {
 		return new Matter();
 	}
 	public int intID() { return 4; }	
+	public String getName() { return "Matter"; }
 }
