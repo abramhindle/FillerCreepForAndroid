@@ -4,7 +4,7 @@ package es.softwareprocess.fillercreep;
 
 public class FillerCreep implements Model {
 	static private FundamentalStuff[] stuffArray = null;
-	static private FundamentalStuff[] getStuffArray() {
+	static FundamentalStuff[] getStuffArray() {
 		if (stuffArray == null) {
 			stuffArray = new FundamentalStuff[]{
 					new DarkEnergy(),
@@ -112,6 +112,9 @@ public class FillerCreep implements Model {
 		int changeInScore = scoreAfter - scoreBefore;
 		return scoreAfter;
 	}
+	public int testPlayerPlay(int playerID, FundamentalStuff choiceOfStuff) {
+		return testPlayerPlay(players[playerID], choiceOfStuff);
+	}
 	public boolean gameOver() {
 		int sum = 0;
 		for (int i = 0 ; i < scores.length; i++ ){
@@ -138,5 +141,23 @@ public class FillerCreep implements Model {
 	}
 	public int[] getScores() {
 		return scores;
+	}
+	public Player[] getPlayers() {
+		return players;
+	}
+	public void playAIPlayer(int i) {
+		AI playerAI = players[i].getAI();
+		FundamentalStuff choice = playerAI.evaluate(i,this);
+		playPlayer(i, choice);
+	}
+	public void playRoundWithAI(int playerID, FundamentalStuff choice) {
+		int otherPlayer = playerID;
+		for (int i = 0; i < players.length ; i++) {
+			if (i != playerID) {
+				otherPlayer = i;
+			}
+		}
+		playPlayer(playerID, choice);
+		playAIPlayer(otherPlayer);		
 	}
 }

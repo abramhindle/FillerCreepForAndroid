@@ -19,4 +19,7 @@ public class Yin extends FundamentalStuff implements Player {
 	public String getName() {
 		return "Yin";
 	}
+	public AI getAI() {
+		return new AIMaximum();
+	}
 }

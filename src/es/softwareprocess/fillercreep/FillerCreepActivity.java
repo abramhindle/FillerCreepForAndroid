@@ -32,15 +32,23 @@ public class FillerCreepActivity extends Activity {
         		//startActivity(intent);
         		FillerCreep fillerCreep = FillerCreepApplication.getFillerCreep();
         		int[] scores = fillerCreep.getScores();
+        		Player[] players = fillerCreep.getPlayers();
         		String score = "Current Score: ";
         		for (int i = 0 ; i < scores.length ; i++ ) {
-        			score += (i==0?"":" and ") + "Player " + (i + 1) + " has " + scores[i]; 
+        			score += (i==0?"":" and ") + "Player " + players[i].getName() + " has " + scores[i]; 
         		}
         		Toast.makeText(FillerCreepActivity.this, score, Toast.LENGTH_SHORT).show();
 
         	}		
         });
-        
+        Button textviewButton = (Button)findViewById(R.id.textonlyview);
+        textviewButton.setOnClickListener(new OnClickListener() {			
+        	@Override
+        	public void onClick(View arg0) {				
+        		Intent intent = new Intent(FillerCreepActivity.this, FillerCreepTextViewActivity.class);
+        		startActivity(intent);
+        	}
+        });
         
     }
 }

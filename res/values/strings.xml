@@ -9,5 +9,11 @@
     <string name="textonlyview">Text Only Interface</string>
     <string name="seemap">See the Universe</string>
     <string name="graphicalview">Graphical Interface to the Universe</string>
+    <string name="darkmatter">Dark Matter</string>
+    <string name="darkenergy">Dark Energy</string>
+    <string name="energy">Energy</string>
+    <string name="matter">Matter</string>
+    <string name="ying">Ying</string>
+    <string name="yang">Yang</string>
 
 </resources>

@@ -20,5 +20,7 @@ public class Yang extends FundamentalStuff implements Player {
 	public String getName() {
 		return "Yang";
 	}
-
+	public AI getAI() {
+		return new AIMaximum();
+	}
 }

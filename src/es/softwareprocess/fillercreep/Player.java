@@ -6,4 +6,5 @@ public interface Player {
 	// Get the STUFF of the player
 	public FundamentalStuff stuff();
 	public String getName();
+	public AI getAI();
 }
