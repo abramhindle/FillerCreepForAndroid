@@ -38,9 +38,12 @@ public class FillerCreepGraphicalViewActivity extends Activity implements FView<
     }
     public void updateMap() {
     	ImageButton button = (ImageButton)findViewById(R.id.maingraphicalview);
-        FillerCreep fillerCreep = FillerCreepApplication.getFillerCreep();
-        GraphicalFillerCreepView gfcv = new GraphicalFillerCreepView(fillerCreep);
-        Bitmap bitmap = gfcv.getBitmapOfFillerCreep();
-        button.setImageBitmap(bitmap);
+        //FillerCreep fillerCreep = FillerCreepApplication.getFillerCreep();
+    	GameController gc = FillerCreepApplication.getGameController();
+    	Bitmap bitmap = gc.getMapBitmap();
+    	button.setImageBitmap(bitmap);
+        //GraphicalFillerCreepView gfcv = new GraphicalFillerCreepView(fillerCreep);
+        //Bitmap bitmap = gfcv.getBitmapOfFillerCreep();
+        //button.setImageBitmap(bitmap);
     }
 }

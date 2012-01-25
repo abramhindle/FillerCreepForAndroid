@@ -18,21 +18,20 @@ public class FillerCreepActivity extends Activity {
         Button button = (Button)findViewById(R.id.newgame);
         button.setOnClickListener(new OnClickListener() {			
         	@Override
-        	public void onClick(View arg0) {				
-        		FillerCreep fillerCreep = FillerCreepApplication.getFillerCreep();
-        		fillerCreep.resetGame();
+        	public void onClick(View arg0) {
+        		GameController gc = FillerCreepApplication.getGameController();
+        		gc.resetGame();
         		Toast.makeText(FillerCreepActivity.this, "FillerCreep game initialized!", Toast.LENGTH_SHORT).show();
         	}
         });
         Button scoreButton = (Button)findViewById(R.id.scoreview);
         scoreButton.setOnClickListener(new OnClickListener() {			
         	@Override
-        	public void onClick(View arg0) {				
-        		//Intent intent = new Intent(MoleFinderActivity.this, PhotoCollectionsActivity.class);
-        		//startActivity(intent);
-        		FillerCreep fillerCreep = FillerCreepApplication.getFillerCreep();
-        		int[] scores = fillerCreep.getScores();
-        		Player[] players = fillerCreep.getPlayers();
+        	public void onClick(View arg0) {
+        		
+        		GameController gc = FillerCreepApplication.getGameController();
+        		int[] scores = gc.getScores();
+        		Player[] players = gc.getPlayers();
         		String score = "Current Score: ";
         		for (int i = 0 ; i < scores.length ; i++ ) {
         			score += (i==0?"":" and ") + "Player " + players[i].getName() + " has " + scores[i]; 

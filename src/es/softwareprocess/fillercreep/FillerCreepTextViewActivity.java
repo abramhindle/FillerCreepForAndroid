@@ -61,23 +61,21 @@ public class FillerCreepTextViewActivity extends Activity implements FView<Fille
     }
 
     void play(FundamentalStuff choice) {
-		FillerCreep fillerCreep = FillerCreepApplication.getFillerCreep();
-		fillerCreep.playRoundWithAI(0, choice);		
+    	GameController gc = FillerCreepApplication.getGameController();
+    	gc.playRound(choice);
     }
+    
     void updateScores() {
-    	TextView score1 = (TextView)findViewById(R.id.textyin);
+    	
+      	TextView score1 = (TextView)findViewById(R.id.textyin);
     	TextView score2 = (TextView)findViewById(R.id.textyang);
-    	TextView [] tscores = new TextView[]{ score1, score2 }; 
-		FillerCreep fillerCreep = FillerCreepApplication.getFillerCreep();
-		int winner = -1;
-		if (fillerCreep.gameOver()) {
-			winner = fillerCreep.whichPlayerNumberWins();
-		}
-		int[] scores = fillerCreep.getScores();
-		Player[] players = fillerCreep.getPlayers();
-		String wins = " wins and ";
-		for (int i = 0; i < scores.length; i++) {
-			tscores[i].setText(players[i].getName() +(winner==i?wins:"") + " has " + scores[i]);
-		}			
+    	TextView [] tscores = new TextView[]{ score1, score2 };
+    	
+    	GameController gc = FillerCreepApplication.getGameController();
+    	
+    	String [] scores = gc.getGameScoreStrings();
+    	for (int i = 0 ; i < tscores.length; i++) {
+    		tscores[i].setText(scores[i]);
+    	}
     }
 }

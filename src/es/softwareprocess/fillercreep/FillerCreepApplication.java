@@ -15,4 +15,14 @@ public class FillerCreepApplication extends Application {
     public void onCreate() {
         super.onCreate();
     }
+
+    transient private static GameController gameController = null;
+	public static GameController getGameController() {
+		if (gameController == null) {
+			gameController = new GameController(getFillerCreep());
+		}
+		return gameController;
+	}
+
+	
 }
