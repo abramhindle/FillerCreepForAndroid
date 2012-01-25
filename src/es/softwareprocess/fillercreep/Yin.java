@@ -12,7 +12,8 @@ public class Yin extends FundamentalStuff implements Player {
 	public FundamentalStuff copy() {
 		return new Yin(x,y);
 	}
-	public int intID() { return 5; }
+	@Override
+	public int intID() { return 77; }
 	public FundamentalStuff stuff() {
 		return this;	
 	}

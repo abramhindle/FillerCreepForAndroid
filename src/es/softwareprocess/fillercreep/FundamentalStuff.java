@@ -1,13 +1,9 @@
 package es.softwareprocess.fillercreep;
 
-public class FundamentalStuff {
-	public FundamentalStuff copy() {
-		return new FundamentalStuff();
-	}
-	public int intID() {
-		return -1;
-	}
-	public boolean isa(FundamentalStuff stuff) {
-		return (intID() == stuff.intID());
+abstract public class FundamentalStuff {
+	abstract public FundamentalStuff copy();
+	abstract public int intID();
+	public boolean isSame(FundamentalStuff stuff) {
+		return (this.intID() == stuff.intID());
 	}
 }

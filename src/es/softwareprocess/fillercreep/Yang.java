@@ -13,7 +13,8 @@ public class Yang extends FundamentalStuff implements Player {
 	public FundamentalStuff copy() {
 		return new Yang(x,y);
 	}
-	public int intID() { return 4; }
+	@Override
+	public int intID() { return 66; }
 	public FundamentalStuff stuff() {
 		return this;	
 	}
@@ -23,4 +24,5 @@ public class Yang extends FundamentalStuff implements Player {
 	public AI getAI() {
 		return new AIMaximum();
 	}
+
 }

@@ -1,5 +1,7 @@
 package es.softwareprocess.fillercreep;
 
+import java.util.Stack;
+
 //Our Model
 
 public class FillerCreep implements Model {
@@ -66,39 +68,76 @@ public class FillerCreep implements Model {
 	// Mutates the board universe
 	// counts the fills
 	// note the shadowing
-	static public int fillFlood(FundamentalStuff[][] universe, int x, int y, FundamentalStuff toReplace, FundamentalStuff replaceWith) {
+	static public int stackfulFillFlood(FundamentalStuff[][] universe, int x, int y, FundamentalStuff toReplace, FundamentalStuff replaceWith) {
+		if (toReplace.isSame(replaceWith)) {
+			throw new RuntimeException("Why is toReplace == replaceWith " + toReplace.getClass().toString() + " " + replaceWith.getClass().toString());
+		}
 		if (!inBounds(universe,x,y)) { 
 				return 0; 
 		}
-		FundamentalStuff currentSpace = universe[x][y];
-		if (currentSpace.isa(toReplace)) {
+		FundamentalStuff currentSpace = universe[x][y];		
+		if (currentSpace.isSame(toReplace)) {
 			universe[x][y] = replaceWith; // should we copy?
 			return 1 + 
 					fillFlood(universe, x+1, y  , toReplace, replaceWith) +
 					fillFlood(universe, x-1, y  , toReplace, replaceWith) +
 					fillFlood(universe, x  , y+1, toReplace, replaceWith) +
 					fillFlood(universe, x  , y-1, toReplace, replaceWith);
+		} else {
+			
 		}
 		return 0;
 	}
+	
+	static public int stacklessFillFlood(FundamentalStuff[][] universe, int ix, int iy, FundamentalStuff toReplace, FundamentalStuff replaceWith) {
+		if (toReplace.isSame(replaceWith)) {
+			throw new RuntimeException("Why is toReplace == replaceWith " + toReplace.getClass().toString() + " " + replaceWith.getClass().toString());
+		}
+		Stack<IntPoint> floods = new Stack<IntPoint>();
+		floods.push(new IntPoint(ix, iy));
+		int score = 0;
+		while(!floods.isEmpty()) {
+			IntPoint flood = floods.pop();
+			int x = flood.x;
+			int y = flood.y;
+			if (inBounds(universe,x,y)) { 
+				FundamentalStuff currentSpace = universe[x][y];
+				if (currentSpace.isSame(toReplace)) {
+					universe[x][y] = replaceWith; // should we copy?
+					score += 1;
+					floods.push(new IntPoint(x+1, y));
+					floods.push(new IntPoint(x-1, y));
+					floods.push(new IntPoint(x, y+1));
+					floods.push(new IntPoint(x, y-1));
+				}
+			}			
+		}
+		return score;
+	}
+	static public int fillFlood(FundamentalStuff[][] universe, int ix, int iy, FundamentalStuff toReplace, FundamentalStuff replaceWith) {
+		return stacklessFillFlood(universe, ix, iy, toReplace, replaceWith);
+	}
+
+	
 	// method for the class
 	private int fillFlood(int x, int y, FundamentalStuff toReplace, FundamentalStuff replaceWith) {
 		// call the static version of the fill flood code
 		return fillFlood(universe, x, y, toReplace, replaceWith);
 	}
 	
-	public void playPlayer(int playerNumber, FundamentalStuff choiceOfStuff) {
+	public int playPlayer(int playerNumber, FundamentalStuff choiceOfStuff) {
 		Player player = players[playerNumber];
-		playPlayer( player, choiceOfStuff );
+		return playPlayer( player, choiceOfStuff );
 	}
-	public void playPlayer(Player player, FundamentalStuff choiceOfStuff) {
+	public int playPlayer(Player player, FundamentalStuff choiceOfStuff) {
 		// First we fill from that player's corner
 		// With the STUFF we want
 		int scoreBefore = fillFlood(player.getX(), player.getY(), player.stuff(), choiceOfStuff);
 		// Then we fill that STUFF we want
 		// With the Player's STUFF
 		int scoreAfter  = fillFlood(player.getX(), player.getY(), choiceOfStuff, player.stuff());
-		int changeInScore = scoreAfter - scoreBefore;		
+		int changeInScore = scoreAfter - scoreBefore;	
+		return scoreAfter;
 	}
 	// For AIs or interfaces to test a possible play
 	public int testPlayerPlay(Player player, FundamentalStuff choiceOfStuff) {
@@ -145,10 +184,10 @@ public class FillerCreep implements Model {
 	public Player[] getPlayers() {
 		return players;
 	}
-	public void playAIPlayer(int i) {
+	public int playAIPlayer(int i) {
 		AI playerAI = players[i].getAI();
 		FundamentalStuff choice = playerAI.evaluate(i,this);
-		playPlayer(i, choice);
+		return playPlayer(i, choice);
 	}
 	public void playRoundWithAI(int playerID, FundamentalStuff choice) {
 		int otherPlayer = playerID;
@@ -157,7 +196,10 @@ public class FillerCreep implements Model {
 				otherPlayer = i;
 			}
 		}
-		playPlayer(playerID, choice);
-		playAIPlayer(otherPlayer);		
+		int you  = playPlayer(playerID, choice);
+		int them = playAIPlayer(otherPlayer);
+		scores[playerID] = you;
+		scores[otherPlayer] = them;
+		System.err.println("You:"+playerID+" "+you + " Them:"+otherPlayer+" "+them+" Your Choice was "+choice.getClass().getName());
 	}
 }
