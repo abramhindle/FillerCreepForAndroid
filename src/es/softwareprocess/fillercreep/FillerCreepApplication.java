@@ -23,8 +23,4 @@ public class FillerCreepApplication extends Application {
         return gameController;
     }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
 }
