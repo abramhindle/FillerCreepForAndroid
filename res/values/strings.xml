@@ -15,5 +15,6 @@
     <string name="matter">Matter</string>
     <string name="ying">Ying</string>
     <string name="yang">Yang</string>
-
+    <string name="autoplay">Auto-Play</string>
+    
 </resources>
