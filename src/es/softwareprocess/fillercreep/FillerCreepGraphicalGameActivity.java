@@ -23,6 +23,16 @@ public class FillerCreepGraphicalGameActivity extends Activity implements
             }
         };
         button.setOnClickListener(listener);
+        
+        Button autoButton = (Button) findViewById(R.id.autoplay);
+        autoButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+		        GameController gc = FillerCreepApplication.getGameController();
+		        gc.autoRound();				
+			}
+		});
 
         ImageButton debutton = (ImageButton) findViewById(R.id.gamedarkenergy);
         debutton.setOnClickListener(new OnClickListener() {

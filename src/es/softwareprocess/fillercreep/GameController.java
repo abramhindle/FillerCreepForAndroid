@@ -38,6 +38,12 @@ public class GameController implements FController {
         fc.playRoundWithAI(0, choice);
     }
 
+    public void autoRound() {
+        fc.playAIPlayer(0);
+        fc.playAIPlayer(1);
+        fc.notifyViews();
+    }
+
     public String[] getGameScoreStrings() {
         GameController gc = this;
         int[] scores = gc.getScores();
