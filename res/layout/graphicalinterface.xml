@@ -48,31 +48,49 @@
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/gamedarkenergy"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/dark_energy"
-        android:text="@string/darkenergy" />
+        android:layout_weight="0" >
 
-    <ImageButton
-        android:id="@+id/gamedarkmatter"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/dark_matter"
-        android:text="@string/darkmatter" />
+        <ImageButton
+            android:id="@+id/xgameenergy"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/energy"
+            android:text="@string/energy" />
 
-    <ImageButton
-        android:id="@+id/gameenergy"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/energy"
-        android:text="@string/energy" />
+        <ImageButton
+            android:id="@+id/gamedarkenergy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/dark_energy"
+            android:text="@string/darkenergy" />
 
-    <ImageButton
-        android:id="@+id/gamematter"
-        android:layout_width="fill_parent"
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/matter"
-        android:text="@string/matter" />
+        android:layout_weight="0" >
+
+        <ImageButton
+            android:id="@+id/gamematter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/matter"
+            android:text="@string/matter" />
+
+        <ImageButton
+            android:id="@+id/gamedarkmatter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/dark_matter"
+            android:text="@string/darkmatter" />
+
+    </LinearLayout>
 </LinearLayout>

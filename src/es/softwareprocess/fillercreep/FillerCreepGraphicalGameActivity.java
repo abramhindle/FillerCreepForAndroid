@@ -41,6 +41,7 @@ public class FillerCreepGraphicalGameActivity extends Activity implements
                 play(new DarkEnergy());
             }
         });
+        
         ImageButton dmbutton = (ImageButton) findViewById(R.id.gamedarkmatter);
         dmbutton.setOnClickListener(new OnClickListener() {
             @Override
@@ -48,13 +49,15 @@ public class FillerCreepGraphicalGameActivity extends Activity implements
                 play(new DarkMatter());
             }
         });
-        ImageButton ebutton = (ImageButton) findViewById(R.id.gameenergy);
+        
+        ImageButton ebutton = (ImageButton) findViewById(R.id.xgameenergy);
         ebutton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 play(new Energy());
             }
         });
+        
         ImageButton mbutton = (ImageButton) findViewById(R.id.gamematter);
         mbutton.setOnClickListener(new OnClickListener() {
             @Override

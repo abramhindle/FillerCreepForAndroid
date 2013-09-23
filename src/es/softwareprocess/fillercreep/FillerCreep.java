@@ -21,8 +21,8 @@ public class FillerCreep extends FModel<FView> {
     protected Player[] players = null;
     // score of players
     protected int[] scores = null;
-    int width = 32;
-    int height = 32;
+    int width = 40;
+    int height = 40;
 
     FillerCreep() {
         super();
