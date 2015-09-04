@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/big/wz/android/StudioProjects/FillerCreepForAndroid/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">FillerCreep</string>
+    <string name="autoplay">Auto-Play</string>
+    <string name="darkenergy">Dark Energy</string>
+    <string name="darkmatter">Dark Matter</string>
+    <string name="energy">Energy</string>
+    <string name="graphicalview">Graphical Interface to the Universe</string>
+    <string name="hello">Hello World, FillerCreepActivity!</string>
+    <string name="matter">Matter</string>
+    <string name="newgame">Reset/New Game</string>
+    <string name="scoreview">Current Score Only</string>
+    <string name="seemap">See the Universe</string>
+    <string name="textonlyview">Text Only Interface</string>
+    <string name="welcome">Welcome To Filler Creep</string>
+    <string name="yang">Yang</string>
+    <string name="ying">Ying</string>
+</resources>
