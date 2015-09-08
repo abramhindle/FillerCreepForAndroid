@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/textlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textyin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ying"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textyang"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/yang"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/textdarkenergy"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/darkenergy" />
+
+    <Button
+        android:id="@+id/textdarkmatter"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/darkmatter" />
+
+    <Button
+        android:id="@+id/textenergy"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/energy" />
+
+    <Button
+        android:id="@+id/textmatter"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/matter" />
+
+</LinearLayout><!-- From: file:/big/wz/android/StudioProjects/FillerCreepForAndroid/app/src/main/res/layout/textinterface.xml -->

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <ImageButton
+        android:id="@+id/maingraphicalview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.75"
+        android:src="@drawable/ic_launcher" />
+    
+</LinearLayout><!-- From: file:/big/wz/android/StudioProjects/FillerCreepForAndroid/app/src/main/res/layout/graphicalview.xml -->
