@@ -4,8 +4,6 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="7" />
-
     <application
         android:name="FillerCreepApplication"        
         android:icon="@drawable/ic_launcher"
